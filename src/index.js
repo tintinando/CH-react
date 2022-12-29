@@ -1,13 +1,28 @@
+// -------- MODULES --------
 import React from 'react';
 import ReactDOM from 'react-dom/client';
-import './index.css';
-import App from './App';
-import reportWebVitals from './reportWebVitals';
+import 'bootstrap/dist/css/bootstrap.min.css';
 
+// -------- STYLE --------
+import './index.css';
+
+// -------- COMPONENTS --------
+import NavBar from './components/navbar/Navbar.js'
+import CategoriesBar from './components/categories/Categories';
+
+// -------- CORE --------
+import reportWebVitals from './reportWebVitals';
+import Footer from './components/footer/Footer';
+import Products from './components/products/Products';
+
+// -------- LOGIC --------
 const root = ReactDOM.createRoot(document.getElementById('root'));
 root.render(
   <React.StrictMode>
-    <App />
+    <NavBar />
+    <CategoriesBar />
+    <Products />
+    <Footer />
   </React.StrictMode>
 );
 
