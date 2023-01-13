@@ -1,0 +1,34 @@
+[
+  {
+    "idCategory": 1,
+    "category": "Gaseosas"
+  },
+  {
+    "idCategory": 2,
+    "category": "Licores"
+  },
+  {
+    "idCategory": 3,
+    "category": "Whisky"
+  },
+  {
+    "idCategory": 4,
+    "category": "Aperitivos"
+  },
+  {
+    "idCategory": 5,
+    "category": "Aguardientes"
+  },
+  {
+    "idCategory": 6,
+    "category": "Cervezas"
+  },
+  {
+    "idCategory": 7,
+    "category": "Aguas"
+  },
+  {
+    "idCategory": 8,
+    "category": "Vinos"
+  }
+]

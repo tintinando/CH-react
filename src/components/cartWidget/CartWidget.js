@@ -5,7 +5,7 @@ import "./CartWidget.css"
 import React, { useState } from "react";
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
 import { faCartShopping } from "@fortawesome/free-solid-svg-icons";
-import { Badge, Button, Modal } from "react-bootstrap";
+import { Badge, Button, Collapse, Container, Modal, Navbar } from "react-bootstrap";
 
 // ------------ LOGIC -------------
 function CartWidget(props) {
@@ -15,12 +15,10 @@ function CartWidget(props) {
 
   return (
     <>
-      <Button
-        variant="dark"
-        onClick={handleShow}
-      >Ver Carrito <FontAwesomeIcon className="me-1" icon={faCartShopping} />
-        <Badge bg="secondary">{props.length}</Badge>
-      </Button>
+      <Container onClick={handleShow} className="d-flex mb-4">
+        <FontAwesomeIcon className="me-1" icon={faCartShopping} />
+        <Badge bg="dark">{props.length}</Badge>
+      </Container>
 
       <Modal
         show={show}

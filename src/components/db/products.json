@@ -1,0 +1,186 @@
+[
+  {
+    "idProduct": 1,
+    "description": "Coca Cola 500cm3",
+    "idCategory": 1,
+    "price": 150,
+    "image": "cocacola05.jpg",
+    "stock": 10
+  },
+  {
+    "idProduct": 2,
+    "description": "Coca Cola 2.25 lts",
+    "idCategory": 1,
+    "price": 400,
+    "image": "cocacola225.jpg",
+    "stock": 10
+  },
+  {
+    "idProduct": 3,
+    "description": "Sprite 500cm3",
+    "idCategory": 1,
+    "price": 150,
+    "image": "sprite05.jpg",
+    "stock": 10
+  },
+  {
+    "idProduct": 4,
+    "description": "Sprite 2.25 lts",
+    "idCategory": 1,
+    "price": 400,
+    "image": "sprite225.jpg",
+    "stock": 10
+  },
+  {
+    "idProduct": 5,
+    "description": "Fanta 500 cm3",
+    "idCategory": 1,
+    "price": 150,
+    "image": "fanta05.jpg",
+    "stock": 10
+  },
+  {
+    "idProduct": 6,
+    "description": "Fanta 2.25 lts",
+    "idCategory": 1,
+    "price": 400,
+    "image": "fanta225.jpg",
+    "stock": 10
+  },
+  {
+    "idProduct": 7,
+    "description": "Licor de huevo Cusenier",
+    "idCategory": 2,
+    "price": 650,
+    "image": "licorhuevo.jpg",
+    "stock": 4
+  },
+  {
+    "idProduct": 8,
+    "description": "Licor de café Cusenier",
+    "idCategory": 2,
+    "price": 650,
+    "image": "licorcafe.jpg",
+    "stock": 4
+  },
+  {
+    "idProduct": 9,
+    "description": "Red Label 750",
+    "idCategory": 3,
+    "price": 4000,
+    "image": "redlabel750.jpg",
+    "stock": 3
+  },
+  {
+    "idProduct": 10,
+    "description": "Jack Daniel's 750",
+    "idCategory": 3,
+    "price": 7000,
+    "image": "jackdaniels750.jpg",
+    "stock": 2
+  },
+  {
+    "idProduct": 11,
+    "description": "Cinzano Blanco 750",
+    "idCategory": 4,
+    "price": 650,
+    "image": "cinzanoblanco750.jpg",
+    "stock": 7
+  },
+  {
+    "idProduct": 12,
+    "description": "Cinzano Rosso 750",
+    "idCategory": 4,
+    "price": 650,
+    "image": "cinzanorosso750.jpg",
+    "stock": 7
+  },
+  {
+    "idProduct": 13,
+    "description": "Vodka Smirnoff 750",
+    "idCategory": 5,
+    "price": 2500,
+    "image": "smirnoff750.jpg",
+    "stock": 8
+  },
+  {
+    "idProduct": 14,
+    "description": "Ron Havanna Club 750",
+    "idCategory": 5,
+    "price": 3800,
+    "image": "havanna750.jpg",
+    "stock": 4
+  },
+  {
+    "idProduct": 15,
+    "description": "Heineken 750",
+    "idCategory": 6,
+    "price": 450,
+    "image": "heineken750.jpg",
+    "stock": 16
+  },
+  {
+    "idProduct": 16,
+    "description": "Andes Roja 500",
+    "idCategory": 6,
+    "price": 300,
+    "image": "andesroja500.jpg",
+    "stock": 16
+  },
+  {
+    "idProduct": 17,
+    "description": "Brahma 500",
+    "idCategory": 6,
+    "price": 200,
+    "image": "brahma500.jpg",
+    "stock": 24
+  },
+  {
+    "idProduct": 18,
+    "description": "Levite Manzana 1,5 lts",
+    "idCategory": 7,
+    "price": 300,
+    "image": "levitemanzana15.jpg",
+    "stock": 9
+  },
+  {
+    "idProduct": 19,
+    "description": "Aquarius Pera 1,5 lts",
+    "idCategory": 7,
+    "price": 300,
+    "image": "aquariuspera15.jpg",
+    "stock": 5
+  },
+  {
+    "idProduct": 20,
+    "description": "Sierra de los Padres 2 lts",
+    "idCategory": 7,
+    "price": 150,
+    "image": "sierradelospadres2.jpg",
+    "stock": 14
+  },
+  {
+    "idProduct": 21,
+    "description": "Colon Malbec 750",
+    "idCategory": 8,
+    "price": 500,
+    "image": "colonmalbec750.jpg",
+    "stock": 8
+  },
+  {
+    "idProduct": 22,
+    "description": "Trapiche Sauvignon 750",
+    "idCategory": 8,
+    "price": 650,
+    "image": "trapichesauvignon750.jpg",
+    "stock": 6
+  },
+  {
+    "idProduct": 23,
+    "description": "Norton Tardio 750",
+    "idCategory": 8,
+    "price": 600,
+    "image": "nortontardio750.jpg",
+    "stock": 12
+  }
+]
