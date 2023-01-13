@@ -4321,6 +4321,7 @@ __metadata:
     react: "npm:^18.2.0"
     react-bootstrap: "npm:^2.7.0"
     react-dom: "npm:^18.2.0"
+    react-router-bootstrap: "npm:^0.26.2"
     react-router-dom: "npm:^6.6.2"
     react-scripts: "npm:5.0.1"
     redux: "npm:^4.2.0"
@@ -10579,7 +10580,7 @@ __metadata:
   languageName: node
   linkType: hard
 
-"prop-types@npm:^15.6.2, prop-types@npm:^15.8.1":
+"prop-types@npm:^15.6.2, prop-types@npm:^15.7.2, prop-types@npm:^15.8.1":
   version: 15.8.1
   resolution: "prop-types@npm:15.8.1"
   dependencies:
@@ -10833,6 +10834,18 @@ __metadata:
   version: 0.11.0
   resolution: "react-refresh@npm:0.11.0"
   checksum: ff741e2a0646da20314dba28ca740e25342df9a909cf1087ab659940bb65fbad86ea9d5b11f923643a442e3c9d2a4eba1152c584724da85b71c80b7c18d2bf2c
+  languageName: node
+  linkType: hard
+
+"react-router-bootstrap@npm:^0.26.2":
+  version: 0.26.2
+  resolution: "react-router-bootstrap@npm:0.26.2"
+  dependencies:
+    prop-types: "npm:^15.7.2"
+  peerDependencies:
+    react: ">=16.13.1"
+    react-router-dom: ">=6.0.0"
+  checksum: cfdc7e9c013ba8e1e1cda0d3f882e1a6b3acd4d02ae1da474e8b41621a8388a59fe11db8ad4dc5f35663e9628d2602f444fe4c2bab2e349b670623f8293941b0
   languageName: node
   linkType: hard
 

@@ -5,7 +5,7 @@ import "./CartWidget.css"
 import React, { useState } from "react";
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
 import { faCartShopping } from "@fortawesome/free-solid-svg-icons";
-import { Badge, Button, Collapse, Container, Modal, Navbar } from "react-bootstrap";
+import { Badge, Button, Container, Modal } from "react-bootstrap";
 
 // ------------ LOGIC -------------
 function CartWidget(props) {

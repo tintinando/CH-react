@@ -5,6 +5,7 @@ import Nav from 'react-bootstrap/Nav';
 import Navbar from 'react-bootstrap/Navbar';
 import CartWidget from '../cartWidget/CartWidget';
 import SearchItems from '../searchItems/SearchItems';
+import { LinkContainer } from 'react-router-bootstrap';
 
 // ------------ LOGIC -------------
 function NavBar(props) {
@@ -13,16 +14,18 @@ function NavBar(props) {
   return (
     <Navbar bg="danger" variant="dark" expand="lg" >
       <Container fluid className='align-items-end'>
-        <Navbar.Brand href="#home">
-          <div className='usr-logo'>Home Ron</div>
-          <div className='usr-logo--sub'>Tus bebidas favoritas</div>
-        </Navbar.Brand>
-          <Nav className='container-fluid'>
-            <SearchItems />
-          </Nav>
-          <Nav>
-            <CartWidget length={cantidadCarrito} />
-          </Nav>
+        <LinkContainer to='/'>
+          <Navbar.Brand>
+            <div className='usr-logo'>Home Ron</div>
+            <div className='usr-logo--sub'>Tus bebidas favoritas</div>
+          </Navbar.Brand>
+        </LinkContainer>
+        <Nav className='container-fluid'>
+          <SearchItems />
+        </Nav>
+        <Nav>
+          <CartWidget length={cantidadCarrito} />
+        </Nav>
       </Container>
     </Navbar >
   )

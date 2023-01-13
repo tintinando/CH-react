@@ -23,13 +23,13 @@ const WelcomePhrases = () => {
 
   return (
     <Container className='d-flex flex-row mt-3'>
-      <p>{currentPhrase}</p>
-      {currentPhrase !== "" &&
-        <FontAwesomeIcon
-          onClick={() => setRefreshPhrase(!refreshPfrase)}
-          style={{ height: "1rem", margin: "0.25rem 0.5rem" }}
-          icon={faRotateLeft} />
-      }
+      <p style={{ color: "white" }}>{currentPhrase}
+        {currentPhrase !== "" &&
+          <FontAwesomeIcon
+            onClick={() => setRefreshPhrase(!refreshPfrase)}
+            style={{ height: "1rem", margin: "0.25rem 0.5rem" }}
+            icon={faRotateLeft} />
+        }</p>
     </Container>
   )
 }
