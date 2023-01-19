@@ -12,6 +12,7 @@ import {
   faEnvelope,
 } from "@fortawesome/free-solid-svg-icons";
 import { faWhatsapp } from "@fortawesome/free-brands-svg-icons";
+import { LinkContainer } from "react-router-bootstrap";
 
 const Footer = () => {
   return (
@@ -58,9 +59,11 @@ const Footer = () => {
               <MDBCol md="3" lg="2" xl="2" className="mx-auto mb-4">
                 <h6 className="text-uppercase fw-bold mb-4">Enlaces útiles</h6>
                 <p>
-                  <a href="#!" className="text-reset text-decoration-none">
-                    Quiénes somos
-                  </a>
+                  <LinkContainer to="/aboutus">
+                    <a href="#!" className="text-reset text-decoration-none">
+                      Quiénes somos
+                    </a>
+                  </LinkContainer>
                 </p>
                 <p>
                   <a href="#!" className="text-reset text-decoration-none">

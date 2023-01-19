@@ -4,6 +4,18 @@
   font-family: 'Righteous';
   font-size: 4rem;
   text-shadow:
+    #FFF 0px 0px 10px,
+    #FF2D95 0px 0px 10px,
+    #FF2D95 0px 0px 15px,
+    #FF2D95 0px 0px 20px,
+    #FF2D95 0px 0px 30px,
+    #FF2D95 0px 0px 45px;
+  color: #7e0a30;
+  margin-right: 2rem;
+}
+
+.usr-logo:hover{
+  text-shadow:
     #FFF 0px 0px 5px,
     #FFF 0px 0px 10px,
     #FFF 0px 0px 15px,
@@ -12,8 +24,7 @@
     #FF2D95 0px 0px 40px,
     #FF2D95 0px 0px 50px,
     #FF2D95 0px 0px 75px;
-  color: #7e0a30;
-  margin-right: 2rem;
+  color: #df3a71;
 }
 
 .usr-logo--sub, .navbar-nav {
