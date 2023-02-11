@@ -5,41 +5,39 @@ import "./CartWidget.css"
 import React, { useState } from "react";
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
 import { faCartShopping } from "@fortawesome/free-solid-svg-icons";
-import { Badge, Button, Container, Modal } from "react-bootstrap";
+import { Badge, Container, Offcanvas } from "react-bootstrap";
+import CartContent from "./CartContent";
+import { faArrowUpRightFromSquare } from "@fortawesome/free-solid-svg-icons";
+import { LinkContainer } from "react-router-bootstrap";
+import { useContext } from "react";
+import CartContext from "../../context/CartContext";
 
 // ------------ LOGIC -------------
-function CartWidget(props) {
+function CartWidget() {
   const [show, setShow] = useState(false);
   const handleClose = () => setShow(false);
   const handleShow = () => setShow(true);
+  const { cart } = useContext(CartContext);
 
   return (
     <>
       <Container onClick={handleShow} className="d-flex mb-4">
         <FontAwesomeIcon className="me-1" icon={faCartShopping} />
-        <Badge bg="dark">{props.length}</Badge>
+        <Badge bg="dark">{cart.length}</Badge>
       </Container>
+      <LinkContainer to="/cart">
+        <FontAwesomeIcon className="me-1" icon={faArrowUpRightFromSquare} />
+      </LinkContainer>
 
-      <Modal
+      <Offcanvas
         show={show}
         onHide={handleClose}
-        animation={false}
-        size="lg"
-        aria-labelledby="contained-modal-title-vcenter"
-        centered
+        placement='end'
+        size='xxl'
       >
-        <Modal.Header closeButton>
-          <Modal.Title>Finalizar compra</Modal.Title>
-        </Modal.Header>
-        <Modal.Body className="text-center">
-          <FontAwesomeIcon className="usr-modal--icon" icon={faCartShopping} />
-        </Modal.Body>
-        <Modal.Footer>
-          <Button variant="secondary" onClick={handleClose}>
-            Close
-          </Button>
-        </Modal.Footer>
-      </Modal>
+        <Offcanvas.Header closeButton></Offcanvas.Header>
+        <CartContent setShow={setShow} />
+      </Offcanvas>
     </>
   )
 }

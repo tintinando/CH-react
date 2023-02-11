@@ -1,0 +1,19 @@
+img{
+  height: 280px;
+  object-fit: contain;
+  mix-blend-mode: multiply;
+}
+
+.card{
+  background: #f5e8f5;
+}
+
+.card:hover{
+background: #ecdcec;
+transition: ease-out 0.3s;
+}
+
+.card-img-top:hover{
+  transform: scale(1.04);
+  transition: ease-out 0.3s;
+}

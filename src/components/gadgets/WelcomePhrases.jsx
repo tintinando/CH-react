@@ -2,7 +2,8 @@ import { faRotateLeft } from '@fortawesome/free-solid-svg-icons';
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
 import { useEffect, useState } from 'react';
 import { Container, Spinner } from 'react-bootstrap';
-import phrases from '../db/welcomePhrases.json';
+import { dbWelcome, randomKey } from '../firebase/Firebase';
+import { getDocs, limit, query, where } from 'firebase/firestore/lite';
 
 const WelcomePhrases = () => {
   const [currentPhrase, setCurrentPhrase] = useState("");
@@ -11,16 +12,17 @@ const WelcomePhrases = () => {
 
   useEffect(() => {
     setLoading(true);
-    const welcomePhrasesFinder = new Promise((resolve) => {
-      setTimeout(() => {
-        const thisId = Math.floor(Math.random() * phrases.length) + 1;
-        resolve(phrases.find(e => e.id === thisId).phrase)
-      }, 1000)
-    })
-    welcomePhrasesFinder.then((param) => {
-      setCurrentPhrase(param);
+
+    const myPhrase = async () => {
+      const q = query(dbWelcome, where("randomKey", ">=", randomKey()), limit(1));
+      const querySnapshot = await getDocs(q);
+      querySnapshot.forEach(e => {
+        setCurrentPhrase(e.data().phrase);
+      })
       setLoading(false);
-    })
+    };
+
+    myPhrase();
   }, [refresh])
 
   return (
@@ -31,17 +33,12 @@ const WelcomePhrases = () => {
         <>
           <p style={{ color: "white" }}>{currentPhrase}</p>
           <FontAwesomeIcon
-            onClick={()=>setRefresh(!refresh)}
+            onClick={() => setRefresh(!refresh)}
             style={{ height: "1rem", margin: "0.25rem 0.5rem" }}
             icon={faRotateLeft} />
         </>
-
       )
-
       }
-
-
-
     </Container>
   )
 }

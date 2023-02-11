@@ -6,28 +6,33 @@ import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
 import {
   faRotateLeft,
 } from "@fortawesome/free-solid-svg-icons";
+import { useEffect } from 'react';
+import { Container } from 'react-bootstrap';
 
-const ItemCount = (props) => {
-  const [count, setCount] = useState(0);
+const ItemCount = ({ max, handleQty }) => {
+  const [count, setCount] = useState(1);
+
+  useEffect(() => {
+    handleQty(count);
+  }, [count, handleQty])
 
   const addItem = () => {
-    if ((props.max && count < props.max) || !props.max) {
+    if ((max && count < max) || !max) {
       setCount(count + 1);
     }
   }
 
   const zeroItem = () => {
-    setCount(0);
+    setCount(1);
   }
 
   const subItem = () => {
-    if (count > 0) setCount(count - 1);
-    console.log(count);
+    if (count > 1) setCount(count - 1);
   }
 
   return (
-    <>
-      <InputGroup size="sm">
+    <Container className='d-flex justify-content-center'>
+      <InputGroup size='sm' style={{ maxWidth: '150px' }}>
         <Button variant="outline-secondary" onClick={subItem}>-</Button>
         <input
           type="text"
@@ -40,7 +45,7 @@ const ItemCount = (props) => {
           <FontAwesomeIcon style={{ maxWidth: "15px", maxHeight: "18px", margin: 0 }} icon={faRotateLeft} />
         </Button>
       </InputGroup>
-    </>
+    </Container>
   )
 }
 

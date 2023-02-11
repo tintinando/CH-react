@@ -9,7 +9,6 @@ import { LinkContainer } from 'react-router-bootstrap';
 
 // ------------ LOGIC -------------
 function NavBar(props) {
-  const cantidadCarrito = 1; // hardcoded 
   // return to renderize
   return (
     <Navbar bg="danger" variant="dark" expand="lg" >
@@ -24,7 +23,7 @@ function NavBar(props) {
           <SearchItems />
         </Nav>
         <Nav>
-          <CartWidget length={cantidadCarrito} />
+          <CartWidget/>
         </Nav>
       </Container>
     </Navbar >

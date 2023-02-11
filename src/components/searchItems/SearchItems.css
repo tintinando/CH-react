@@ -1,3 +1,7 @@
 p{
 font-size: 1rem;
 }
+
+.dropdown-menu{
+  width: 100%;
+}

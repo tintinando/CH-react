@@ -7,7 +7,7 @@ import { LinkContainer } from 'react-router-bootstrap';
 function CategoriesBar(props) {
 
   return (
-    <Nav className="justify-content-center bg-dark">
+    <Nav navbarScroll={true} className="justify-content-center bg-dark">
       {
         CategoriesData.map(cat => {
           return (

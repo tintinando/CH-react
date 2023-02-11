@@ -1,41 +1,37 @@
 import React, { useEffect, useState } from 'react'
-import Container from 'react-bootstrap/Container';
 import Row from 'react-bootstrap/Row';
-import Col from 'react-bootstrap/Col';
 import ItemCard from '../itemCard/ItemCard';
 import { useParams } from 'react-router-dom';
 import { Spinner } from 'react-bootstrap';
+import { getDocs, query, where } from 'firebase/firestore/lite';
+import { dbProducts } from '../firebase/Firebase';
 const urlImg = '/assets/img/'
 
 const ItemContainer = () => {
   const [itemsToShow, setItemsToShow] = useState([]);
   const [filterItems, setFilterItems] = useState([]);
   const [isLoading, setIsLoading] = useState(true);
-  const { idCategory, idProduct } = useParams();
+  const { idCategory } = useParams();
 
   useEffect(() => {
     // detecta cambio de ruta
-    setFilterItems({ idCategory, idProduct })
+    setFilterItems({ idCategory })
     setIsLoading(true);
-  }, [idCategory, idProduct]);
+  }, [idCategory]);
 
   useEffect(() => {
     const getItems = async () => {
-      // consulta API, filtra y modifica estado
-      fetch("https://hub.dummyapis.com/vj/NpB8oqt")
-        .then(res => res.json())
-        .then(data => {
-          let filteredProducts = [];
-          filteredProducts = Object.values(data[0]).filter((e) => {
-            if (!filterItems.idProduct && !filterItems.idCategory) return true;
-            const isFilteredCat = filterItems.idCategory && e.idCategory.toString() === filterItems.idCategory;
-            const isFilteredId = filterItems.idProduct && e.idProduct.toString() === filterItems.idProduct;
-            return isFilteredCat || isFilteredId;
-          })
-          setItemsToShow(filteredProducts);
-          setIsLoading(false);
-        })
-        .catch((error) => console.error('Falló fetch de productos', error))
+      const itemsToSet = [];
+      let q = query(dbProducts);
+      if (filterItems.idCategory) {
+        q = query(q, where("idCategory", "==", parseInt(filterItems.idCategory)));
+      };
+      const querySnapshot = await getDocs(q);
+      querySnapshot.forEach(e => {
+        itemsToSet.push({ ...e.data(), id: e.id });
+      })
+      setItemsToShow(itemsToSet);
+      setIsLoading(false);
     }
 
     getItems();
@@ -43,29 +39,28 @@ const ItemContainer = () => {
 
   return (
     <>
-      <Container className='m-5'>
-        <Row>
-          {isLoading
-            ? (
-              <Spinner></Spinner>
-            )
-            : (
-              itemsToShow.map(item => {
-                return (
-                  <Col key={item.idProduct}>
-                    <ItemCard
-                      idProduct={item.idProduct}
-                      title={item.description}
-                      image={urlImg + item.image}
-                      price={item.price}
-                      stock={item.stock}
-                    ></ItemCard>
-                  </Col>
-                )
-              })
-            )}
-        </Row>
-      </Container>
+      <Row className='m-4' xs={1} sm={3} lg={4}>
+        {isLoading
+          ? (
+            <Spinner></Spinner>
+          )
+          : (
+            itemsToShow.map(item => {
+              return (
+                <ItemCard
+                  key={item.id}
+                  id={item.id}
+                  idProduct={item.idProduct}
+                  title={item.description}
+                  image={urlImg + item.image}
+                  price={item.price}
+                  stock={item.stock}
+                  fluid
+                ></ItemCard>
+              )
+            })
+          )}
+      </Row>
     </>
   )
 }
