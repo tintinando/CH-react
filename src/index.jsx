@@ -14,6 +14,7 @@ import AboutUs from './components/aboutUs/AboutUs.jsx';
 import { CartProvider } from './context/CartContext.jsx';
 import ItemDetail from './components/itemDetail/ItemDetail.jsx';
 import CartContent from './components/cartWidget/CartContent.jsx';
+import Order from './components/order/Order.jsx';
 
 // -------- SCSS --------
 // import './scss/custom.scss'
@@ -31,6 +32,7 @@ root.render(
           <Route path="/categories/:idCategory" element={<ItemContainer />} />
           <Route path="/detail/:idProduct" element={<ItemDetail />} />
           <Route path="/cart" element={<CartContent />} />
+          <Route path="/order" element={<Order />} />
           <Route path="/aboutus" element={<AboutUs />} />
           <Route path="*" element={<NotFound404 />} />
         </Routes>

@@ -2,12 +2,13 @@ import { faClose } from "@fortawesome/free-solid-svg-icons";
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
 import { useContext } from "react";
 import { Button, Col, Container, Image, Row } from "react-bootstrap";
+import { LinkContainer } from "react-router-bootstrap";
 import { useLocation } from "react-router-dom";
 import { useNavigate } from "react-router-dom";
 import CartContext from "../../context/CartContext";
 
 const CartContent = ({ setShow }) => {
-  const { cart, setCart, handleRemoveItem } = useContext(CartContext);
+  const { cart, setCart, handleRemoveItem, calcTotal } = useContext(CartContext);
   const navigate = useNavigate();
   const isEmptyCart = cart.length === 0;
   const location = useLocation();
@@ -22,10 +23,6 @@ const CartContent = ({ setShow }) => {
   const handleDetailProduct = (d) => {
     navigate(`/detail/${d.item.id}`)
     setShow(false);
-  }
-
-  const calcTotal = () => {
-    return cart.reduce(((acc, r) => acc + r.item.price * r.qty), 0)
   }
 
   return (
@@ -83,9 +80,11 @@ const CartContent = ({ setShow }) => {
                     <h3>$ {calcTotal()}</h3>
                   </Col>
                   <Col>
-                    <Button>
-                      Cerrar el pedido
-                    </Button>
+                    <LinkContainer to="/order">
+                      <Button onClick={() => setShow(false)}>
+                        Cerrar el pedido
+                      </Button>
+                    </LinkContainer>
                   </Col>
                 </Row>
               )

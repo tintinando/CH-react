@@ -1,6 +1,6 @@
 // Import the functions you need from the SDKs you need
 import { initializeApp } from "firebase/app";
-import { getFirestore, collection, getDocs, query, updateDoc, doc } from "firebase/firestore/lite";
+import { getFirestore, collection } from "firebase/firestore/lite";
 
 const firebaseConfig = JSON.parse(process.env.REACT_APP_FIREBASE_CONFIG)
 
