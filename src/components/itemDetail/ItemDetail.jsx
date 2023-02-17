@@ -1,7 +1,9 @@
 import { doc, getDoc } from 'firebase/firestore/lite';
 import { useEffect } from 'react';
 import { useState } from 'react';
+import { Container } from 'react-bootstrap';
 import { Button } from 'react-bootstrap';
+import { LinkContainer } from 'react-router-bootstrap';
 import { useNavigate } from 'react-router-dom';
 import { useParams } from 'react-router-dom';
 import { db } from '../firebase/Firebase';
@@ -18,27 +20,41 @@ export default function ItemDetail(props) {
     const getItems = async () => {
       const docRef = doc(db, "products", id);
       const docSnap = await getDoc(docRef);
-      setItemToShow(docSnap.data());
+      if (docSnap.exists()) {
+        setItemToShow(docSnap.data());
+      }
     }
     getItems();
   }, [id])
 
   return (
-    <ItemCard
-      className="col-10"
-      key={itemToShow.id}
-      id={itemToShow.id}
-      idProduct={itemToShow.idProduct}
-      title={itemToShow.description}
-      image={urlImg + itemToShow.image}
-      price={itemToShow.price}
-      stock={itemToShow.stock}
-      fluid
-    >
-      <Button
-        className='usr-back'
-        onClick={() => { navigate(-1) }}
-      >Volver</Button>
-    </ItemCard>
-  );
+    <>
+      {itemToShow.length === 0
+        ? (
+          <Container className='d-flex  flex-column m-5'>
+            <h2>El producto no existe</h2>
+            <LinkContainer to="/"><a href="/">Buscar uno que sí exista</a></LinkContainer>
+          </Container>
+        )
+        : (
+          <ItemCard
+            className="col-10"
+            key={itemToShow.id}
+            id={itemToShow.id}
+            idProduct={itemToShow.idProduct}
+            title={itemToShow.description}
+            image={urlImg + itemToShow.image}
+            price={itemToShow.price}
+            stock={itemToShow.stock}
+            fluid
+          >
+            <Button
+              className='usr-back'
+              onClick={() => { navigate(-1) }}
+            >Volver</Button>
+          </ItemCard >
+        )
+      };
+    </>
+  )
 }

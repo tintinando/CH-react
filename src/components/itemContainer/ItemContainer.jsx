@@ -5,7 +5,10 @@ import { useParams } from 'react-router-dom';
 import { Spinner } from 'react-bootstrap';
 import { getDocs, query, where } from 'firebase/firestore/lite';
 import { dbProducts } from '../firebase/Firebase';
-const urlImg = '/assets/img/'
+import './temContainer.css';
+import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
+import { faCircleArrowUp } from '@fortawesome/free-solid-svg-icons';
+const urlImg = '/assets/img/';
 
 const ItemContainer = () => {
   const [itemsToShow, setItemsToShow] = useState([]);
@@ -39,6 +42,12 @@ const ItemContainer = () => {
 
   return (
     <>
+        <div className='usr-button-fixed'>
+          <FontAwesomeIcon
+           icon={faCircleArrowUp} 
+           onClick={()=>window.scroll(0,0)}
+          />
+        </div>
       <Row className='m-4' xs={1} sm={3} lg={4}>
         {isLoading
           ? (
