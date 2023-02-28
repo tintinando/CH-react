@@ -61,5 +61,6 @@
   },
   "main": "index.js",
   "repository": "https://github.com/tintinando/CH-react.git",
-  "license": "MIT"
+  "license": "MIT",
+  "swpm": "pnpm"
 }

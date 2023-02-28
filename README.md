@@ -19,10 +19,11 @@ categories{category,idCategory}
 products{description, descriptionLowercase, idCategory, idProduct, image, price, stock}
 
 ## Instalación:
+Se utilizó el gestor de paquetes pnpm. Probando con npm también funcionó
 Clonar el repositorio
 
 Crear un archivo .env.local con las credenciales de acceso a Firebase:
 `REACT_APP_FIREBASE_CONFIG={"apiKey":"","authDomain":"","projectId":"","storageBucket":"","messagingSenderId":"","appId":""}`
 
-### `pnpm install`
-### `pnpm start`
+`pnpm install`
+`pnpm start`
